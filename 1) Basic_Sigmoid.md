@@ -23,31 +23,6 @@ def basic_sigmoid(x):
     return s
  </pre>
  
- <h2>Sigmoid</h2>
- 
- <pre>
- # GRADED FUNCTION: sigmoid
-
-import numpy as np # this means you can access numpy functions by writing np.function() instead of numpy.function()
-
-def sigmoid(x):
-    """
-    Compute the sigmoid of x
-
-    Arguments:
-    x -- A scalar or numpy array of any size
-
-    Return:
-    s -- sigmoid(x)
-    """
-    
-    ### START CODE HERE ### (≈ 1 line of code)
-    <b>s = 1 / (1 + np.exp(-x))</b>
-    ### END CODE HERE ###
-    
-    return s
- </pre>
- 
  <h2>Sigmoid Derivative</h2>
  
  <pre>
@@ -100,6 +75,53 @@ def normalizeRows(x):
     return x
  </pre>
  
+ <h2>Image2Vector</h2>
+ 
+ <pre>
+ # GRADED FUNCTION: image2vector
+def image2vector(image):
+    """
+    Argument:
+    image -- a numpy array of shape (length, height, depth)
+    
+    Returns:
+    v -- a vector of shape (length*height*depth, 1)
+    """
+    
+    ### START CODE HERE ### (≈ 1 line of code)
+    v = image.reshape(image.shape[0]*image.shape[1], image.shape[2])
+    ### END CODE HERE ###
+    
+    return v
+</pre>
+
+<h2>NormalizeRows</h2>
+
+<pre>
+# GRADED FUNCTION: normalizeRows
+
+def normalizeRows(x):
+    """
+    Implement a function that normalizes each row of the matrix x (to have unit length).
+    
+    Argument:
+    x -- A numpy matrix of shape (n, m)
+    
+    Returns:
+    x -- The normalized (by row) numpy matrix. You are allowed to modify x.
+    """
+    
+    ### START CODE HERE ### (≈ 2 lines of code)
+    # Compute x_norm as the norm 2 of x. Use np.linalg.norm(..., ord = 2, axis = ..., keepdims = True)
+    x_norm = np.linalg.norm(x,axis=1,keepdims=True)
+    
+    # Divide x by its norm.
+    x = x /x_norm
+    ### END CODE HERE ###
+
+    return x
+</pre>
+
 What you need to remember:
 
 - np.exp(x) works for any np.array x and applies the exponential function to every coordinate
