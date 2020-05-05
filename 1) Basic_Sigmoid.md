@@ -154,6 +154,49 @@ def softmax(x):
     return s
 </pre>
 
+<h2>Loss Function 1</h2>
+
+<pre>
+# GRADED FUNCTION: L1
+
+def L1(yhat, y):
+    """
+    Arguments:
+    yhat -- vector of size m (predicted labels)
+    y -- vector of size m (true labels)
+    
+    Returns:
+    loss -- the value of the L1 loss function defined above
+    """
+    
+    ### START CODE HERE ### (≈ 1 line of code)
+    loss = np.sum(abs(y-yhat))
+    ### END CODE HERE ###
+    
+    return loss
+</pre>
+
+<h2>Loss Function 2</h2>
+
+<pre>
+# GRADED FUNCTION: L2
+
+def L2(yhat, y):
+    """
+    Arguments:
+    yhat -- vector of size m (predicted labels)
+    y -- vector of size m (true labels)
+    
+    Returns:
+    loss -- the value of the L2 loss function defined above
+    """
+    
+    ### START CODE HERE ### (≈ 1 line of code)
+    loss = np.dot(y-yhat, y-yhat)
+    ### END CODE HERE ###
+    
+    return loss
+</pre>
 What you need to remember:
 
 - np.exp(x) works for any np.array x and applies the exponential function to every coordinate
